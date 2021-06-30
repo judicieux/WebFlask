@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Flask - Home</title>
+</head>
+<body>
+	<h1>Bonjour, {{ username }}</h1><br/>
+	<table>
+		<td>
+			<th><a href="{{ url_for('login') }}">Login</a></th>
+			<th><a href="{{ url_for('register') }}">Register</a></th>
+			<th><a href="{{ url_for('logout') }}">Logout</a></th>
+		</td>
+	</table>
+</body>
+</html>
