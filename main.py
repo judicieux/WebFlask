@@ -1,7 +1,7 @@
 import flask
-import MySQLdb.cursors
 from flask import url_for
 from flask_mysqldb import MySQL
+import MySQLdb.cursors
 import re
 
 app = flask.Flask(__name__)
@@ -11,6 +11,10 @@ app.config['MYSQL_USER'] = "root"
 app.config['MYSQL_PASSWORD'] = ""
 app.config['MYSQL_DB'] = "flask"
 mysql = MySQL(app)
+
+@app.route('/')
+def index():
+	return flask.redirect(url_for('home'))
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
