@@ -66,5 +66,6 @@ def home():
 		return flask.render_template('home.html', username=username)
 	else:
 		return flask.redirect(url_for('login'))
+
 if __name__ == "__main__":
 	app.run(host="127.0.0.1", port=1337, debug=True)
