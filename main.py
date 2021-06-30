@@ -34,6 +34,7 @@ def login():
 			return flask.redirect("/home")
 		else:
 			msg_error = "Il y a eu une erreur, veuillez réessayer!"
+
 	return flask.render_template("login.html", msg=msg_error)
 
 @app.route('/logout')
@@ -41,6 +42,7 @@ def logout():
 	flask.session.pop("log", None)
 	flask.session.pop("id", None)
 	flask.session.pop("username", None)
+
 	return flask.redirect(url_for('login'))
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -63,6 +65,7 @@ def register():
 			cursor.execute("INSERT INTO users VALUES(NULL, %s, %s)", (username, password,))
 			mysql.connection.commit()
 			return flask.redirect(url_for('login'))
+
 	return flask.render_template("register.html", msg=msg_error)
 
 @app.route('/home')
